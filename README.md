@@ -24,4 +24,7 @@ GBP0004_analysis.R
 
 ## Calling SNPs in human mitochondrial samples. I updated the scripts and used them to call SNPs in human mitochondria.
 ### The updates were done to try and force through SNPs which looked real but were not being called and also to get a better understanding of why potential SNPs were not being called
-``
+
+count_variants_vcf.py - outputs a VCF of the final filtered variants and allows variable set of filtering tags e.g. 'SITE' for pass, 'strand_bias'.
+
+mito_var_mpileup.nf - Adds a step in which potential variant sites are identified by mpileup prior to Mutect2. --mitochondrial-mode is also disabled in the inital mutect2 call, but is present in the filtering step
