@@ -62,10 +62,13 @@ process mpileup {
     output:
     path "${bam}.mpileup.vcf.gz" into mpileup_vcf_ch
     path "${bam}.mpileup.vcf.gz.tbi" into mpileup_vcf_tbi_ch
+    path "" into mpileup_samtools_bcf_ch
 
     script:
     """
-    bcftools mpileup -r chrM -O z -f $ref -o "${bam}.mpileup.vcf.gz" $bam
+    #bcftools mpileup -d 1000 -r chrM -O z -f $ref -o "${bam}.mpileup.vcf.gz" $bam
+    samtools mpileup -r chrM -g -f $ref -o "${bam}.samtoolsmpileup.bcf" $bam
+    bcftools view -O z -o "${bam}.mpileup.vcf.gz" "${bam}.samtoolsmpileup.bcf"
     tabix -p vcf "${bam}.mpileup.vcf.gz"
     """
 
