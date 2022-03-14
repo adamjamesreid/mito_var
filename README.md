@@ -21,3 +21,7 @@ beegfs/home1/reid/ajr236/projects/hansong/ref/dm6.dict --outdir mito_var_outdir 
 
 ### R analysis
 GBP0004_analysis.R
+
+## Calling SNPs in human mitochondrial samples. I updated the scripts and used them to call SNPs in human mitochondria.
+### The updates were done to try and force through SNPs which looked real but were not being called and also to get a better understanding of why potential SNPs were not being called
+``
